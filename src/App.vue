@@ -69,7 +69,7 @@
 import navigatePanel from '@/components/navigatePanel.vue';
 import sortBlock from '@/components/sortBlock/sortBlock.vue';
 import { setTimeout } from 'timers';
-import dataJson from '@/data.json';
+import dataJson from '@/datas.json';
 export default {
   
   mounted: function() {
