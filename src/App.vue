@@ -113,6 +113,8 @@ export default {
   methods: {
     fetchData() {
 
+      console.log(dataJson)
+
         for (var i = 0; i < dataJson.length; i++) {
           this.dataContent.push(dataJson[i])
           this.dataContent[i].field_stoimost = {str: this.dataContent[i].field_stoimost, num: parseInt(this.dataContent[i].field_stoimost.replace(/\s{1,}/ig, ''))}
