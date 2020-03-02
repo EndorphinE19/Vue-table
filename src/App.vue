@@ -1,7 +1,7 @@
 <template lang="pug">
     #app.vue-table
       .vue-table__navigate-panel
-          navigatePanel(@sortBlock="navigateVisible")
+          navigatePanel(v-on:sortBlock="navigateVisible")
           component(:is="componentVisible()" v-bind:class="[visible ? 'showPanel' : 'hidePanel']" v-model.trim="message" @input="messages(message)" @keyNumSort="toAddNumber()")
       .vue-table__body
         .vue-table__head-body
@@ -69,6 +69,7 @@
 import navigatePanel from '@/components/navigatePanel.vue';
 import sortBlock from '@/components/sortBlock/sortBlock.vue';
 import { setTimeout } from 'timers';
+import dataJson from '@/data.json';
 export default {
   
   mounted: function() {
@@ -112,11 +113,8 @@ export default {
   methods: {
     fetchData() {
 
-      fetch('http://renevada.ru/1A79A4D60DE6718E8E5B326E338AE533/10F2C57C1870517EAD822058C13907A38514E5EC24E869327D902E9D4B104E5F')
-      .then(resp => resp.json())
-      .then(result => {
-        for (var i = 0; i < result.length; i++) {
-          this.dataContent.push(result[i])
+        for (var i = 0; i < dataJson.length; i++) {
+          this.dataContent.push(dataJson[i])
           this.dataContent[i].field_stoimost = {str: this.dataContent[i].field_stoimost, num: parseInt(this.dataContent[i].field_stoimost.replace(/\s{1,}/ig, ''))}
           this.dataContent[i].field_ploschad = {str: this.dataContent[i].field_ploschad, num: parseFloat(this.dataContent[i].field_ploschad.replace(/\s{1,}/ig, ''))}
           this.dataContent[i].field_ploschad_kukhni = {str: this.dataContent[i].field_ploschad_kukhni, num: parseFloat(this.dataContent[i].field_ploschad_kukhni.replace(/\s{1,}/ig, ''))}
@@ -124,7 +122,7 @@ export default {
           this.dataContent[i].field_rayon = this.dataContent[i].field_rayon.toLowerCase()
           this.dataContent[i].field_fio = this.dataContent[i].field_fio .toLowerCase()
         }
-      })
+      
       
     },
     toAddNumber(){
