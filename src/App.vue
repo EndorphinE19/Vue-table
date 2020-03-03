@@ -114,6 +114,7 @@ export default {
     fetchData() {
 
       console.log(dataJson)
+      alert()
 
         for (var i = 0; i < dataJson.length; i++) {
           this.dataContent.push(dataJson[i])
