@@ -19,7 +19,7 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "node-sass": "^4.9.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-pug": "^1.0.7",
     "vue-template-compiler": "^2.6.10"
