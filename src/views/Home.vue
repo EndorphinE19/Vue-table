@@ -1,5 +1,5 @@
 <template lang="pug">
-    .name
+    .names
       h1 hello
 </template>
 
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.name {
+.names {
   h1 {
     color: red;
   }
